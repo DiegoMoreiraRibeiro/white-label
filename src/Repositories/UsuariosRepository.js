@@ -1,5 +1,6 @@
 import UsuarioModel from "../Models/UsuarioModel"
 
+
 class UsuariosRepository {
 
     async buscarUsuarios() {
