@@ -1,4 +1,5 @@
 import UsuarioModel from "../Models/UsuarioModel"
+import LoginViewModel from "../Models/ViewModel/LoginViewModel";
 
 
 class UsuariosRepository {
@@ -14,7 +15,7 @@ class UsuariosRepository {
 
     async buscarUsuarioPorId(id) {
         try {
-            return await UsuarioModel.findByFk(id);
+            return await UsuarioModel.findOne({ where: { id: id } });
         } catch (error) {
             return 'Erro ao buscarUsuarioPorId: ' + error;
         }
@@ -58,6 +59,18 @@ class UsuariosRepository {
 
     }
 
+
+    async validarUsuario(login: LoginViewModel): Promise<UsuarioModel> {
+        try {
+            return await UsuarioModel.findOne({
+                where: { email: login.email } && { senha: login.senha }
+            });
+        } catch (error) {
+            return null;
+        }
+
+    }
+
 }
 
-module.exports = UsuariosRepository;
+export default UsuariosRepository

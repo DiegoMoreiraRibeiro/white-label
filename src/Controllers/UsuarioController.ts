@@ -1,7 +1,5 @@
 import UsuariosRepository from "../repositories/UsuariosRepository"
 import md5 from "md5";
-const tableName = 'usuarios';
-
 class UsuarioController {
 
 
@@ -19,7 +17,7 @@ class UsuarioController {
     static listarUsuarioPorId = (req, res) => {
         const id = req.params.id;
 
-        new UsuariosRepository().buscarUsuarioPorId(tableName, id)
+        new UsuariosRepository().buscarUsuarioPorId(id)
             .then(function (rows) {
                 res.json(rows)
             })
@@ -72,4 +70,4 @@ class UsuarioController {
 
 }
 
-module.exports = UsuarioController;
+export default UsuarioController
