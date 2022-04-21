@@ -18,7 +18,6 @@
   },
   "main": "src/Server.ts",
   "scripts": {
-    "dev": "nodemon src/Server.ts",
     "start": "node src/Server.ts"
   },
   "dependencies": {
